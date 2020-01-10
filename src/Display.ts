@@ -34,11 +34,7 @@ export namespace Display
 
         var doc = editor.document;
 
-        //If no folder is open, override the perforce directory to the files
-        var directoryOverride;
-        if (workspace.workspaceFolders === undefined) {
-            directoryOverride = Path.dirname(doc.uri.fsPath);
-        }
+        var directoryOverride = Path.dirname(doc.uri.fsPath);
 
         if(!doc.isUntitled) {
             const args = '"' + Utils.expansePath(doc.uri.fsPath) + '"';
