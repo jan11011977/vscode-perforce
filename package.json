@@ -1,21 +1,21 @@
 {
     "name": "perforce",
-    "displayName": "Perforce for VS Code",
-    "description": "Perforce integration with VS Code's SCM features",
-    "version": "3.1.0",
-    "publisher": "slevesque",
+    "displayName": "Perforce",
+    "description": "Perforce plugin",
+    "version": "1.0.0",
+    "publisher": "jvanvalburg",
     "license": "LICENSE.md",
     "categories": [
         "SCM Providers"
     ],
     "icon": "icon.png",
     "bugs": {
-        "url": "https://github.com/stef-levesque/vscode-perforce/issues"
+        "url": "https://github.com/jan11011977/vscode-perforce/issues"
     },
-    "homepage": "https://github.com/stef-levesque/vscode-perforce/blob/master/README.md",
+    "homepage": "https://github.com/jan11011977/vscode-perforce/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/stef-levesque/vscode-perforce.git"
+        "url": "https://github.com/jan11011977/vscode-perforce.git"
     },
     "galleryBanner": {
         "color": "#5c2d91",

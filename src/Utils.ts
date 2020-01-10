@@ -100,11 +100,13 @@ export namespace Utils {
     
             var revisionString: string = revision == null || isNaN(revision) ? '' : `#${revision}`;
     
+            let dir = null;
             if (file) {
                 let path = (typeof file === 'string') ? file : file.fsPath;
                 path = expansePath(path);
                 
                 args += ' "' + path + revisionString + '"';
+                dir = Path.dirname(path);
             }
     
             PerforceService.execute(resource, command, (err, stdout, stderr) => {
@@ -117,7 +119,7 @@ export namespace Utils {
                 } else {
                     resolve(stdout);
                 }
-            }, args, null, input);
+            }, args, dir, input);
         });
     }
 
@@ -166,7 +168,7 @@ export namespace Utils {
                 } else {
                     resolve(tmpFilePath);
                 }
-            }, args);
+            }, args, Path.dirname(resource.fsPath));
         });
     }
 }

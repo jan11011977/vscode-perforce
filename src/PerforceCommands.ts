@@ -43,11 +43,7 @@ export namespace PerforceCommands
         }
 
         var fileUri = editor.document.uri;
-        if(checkFolderOpened()) {
-            add(fileUri);
-        } else {
-            add(fileUri, Path.dirname(fileUri.fsPath));
-        }
+        add(fileUri, Path.dirname(fileUri.fsPath));
     }
 
     export function add(fileUri: Uri, directoryOverride?: string) {
@@ -72,12 +68,7 @@ export namespace PerforceCommands
 
         var fileUri = editor.document.uri; 
 
-        //If folder not opened, run p4 in files folder.
-        if(checkFolderOpened()) {
-            edit(fileUri);
-        } else {
-            edit(fileUri, Path.dirname(fileUri.fsPath));
-        }
+        edit(fileUri, Path.dirname(fileUri.fsPath));
     }
 
     export function edit(fileUri: Uri, directoryOverride?: string): Promise<boolean> {
@@ -116,9 +107,7 @@ export namespace PerforceCommands
         //If folder not opened, overrided p4 directory
         var fileUri = editor.document.uri
         var directoryOverride;
-        if(!checkFolderOpened()) {
-            directoryOverride = Path.dirname(fileUri.fsPath);
-        }
+        directoryOverride = Path.dirname(fileUri.fsPath);
 
         const args = '"' + Utils.expansePath(fileUri.fsPath) + '"';
         PerforceService.execute(fileUri, "revert", (err, stdout, stderr) => {

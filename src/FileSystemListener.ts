@@ -12,6 +12,7 @@ import {
     WorkspaceFolder
 } from 'vscode';
 
+import * as Path from 'path';
 import * as micromatch from 'micromatch';
 import * as parseignore from 'parse-gitignore';
 
@@ -112,7 +113,7 @@ export default class FileSystemListener
     // in future releases.
     // https://github.com/stef-levesque/vscode-perforce/issues/110
     private static tryEditFile(uri: Uri): Promise<boolean> {
-        return PerforceCommands.edit(uri);
+        return PerforceCommands.edit(uri, Path.dirname(uri.fsPath));
         // return new Promise((resolve) => {
         //     //Check if this file is in client root first
         //     FileSystemListener.fileInClientRoot(uri).then((inClientRoot) => {
