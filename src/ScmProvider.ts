@@ -260,7 +260,7 @@ export class PerforceSCMProvider {
             return;
         }
 
-        return uri.with({ scheme: 'perforce', authority: 'print', query: '-q' });
+        return uri.with({ scheme: 'perforce', authority: 'print', query: '-q', fragment: 'have' });
     }
 
 
